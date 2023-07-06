@@ -5,7 +5,7 @@ def mergeAndCount(a):
     else:
         count = 0
         n = len(a)
-        print(n)
+        # print(n)
         if n == 2:
             if a[0] > a[1]:
                 temp = a[0]
@@ -16,16 +16,16 @@ def mergeAndCount(a):
                 return 0
         else:
             b = a[:(n//2)]
-            print(b)
+            # print(b)
             c = a[(n//2):]
-            print(c)
+            # print(c)
             count+=mergeAndCount(b)
             count+=mergeAndCount(c)
             i,j=0,0
-            print(n//2)
+            # print('half of n is ', n//2)
             for k in range(0,n):
-                print(i,j)
-                if (i < n//2+1) | (j < n//2+1):
+                # print(i,j)
+                if (i < n//2) & (j < n//2):
                     if (b[i] < c[j]):
                         a[k] = b[i]
                         i+=1
@@ -36,10 +36,9 @@ def mergeAndCount(a):
                 else:
                     if(i == n//2): a.extend(c[j:])
                     elif(j == n//2): a.extend(b[i:])
-            return count
 
-    print('Merged array: ', a)
-    return count
+            print('Merged array: ', a)
+            return count
 
 arr1 = [1,3,5,2,4,6]
 print(mergeAndCount(arr1))
